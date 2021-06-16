@@ -40,7 +40,10 @@ final class DialogManager {
             public void onClick(DialogInterface dialog, int which) {
                 final Intent intentToAppstore = options.getStoreType() == StoreType.GOOGLEPLAY ?
                 createIntentForGooglePlay(context) : createIntentForAmazonAppstore(context);
-                context.startActivity(intentToAppstore);
+                 try {
+                    context.startActivity(intentToAppstore);
+                }catch (Exception exception){
+                }
                 setAgreeShowDialog(context, false);
                 if (listener != null) listener.onClickButton(which);
             }
